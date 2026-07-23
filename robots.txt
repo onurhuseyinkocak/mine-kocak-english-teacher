@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://onurhuseyinkocak.github.io/mine-kocak-english-teacher/sitemap.xml

@@ -1,0 +1,9 @@
+{
+  "name": "Mine Koçak | English Teacher",
+  "short_name": "Mine Koçak",
+  "start_url": "./en/",
+  "display": "standalone",
+  "background_color": "#f4f0e8",
+  "theme_color": "#122942",
+  "icons": [{"src":"./favicon.svg","sizes":"any","type":"image/svg+xml"}]
+}
