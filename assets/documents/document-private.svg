@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Private document preview</title>
+  <desc id="desc">A document cover showing that private information has been removed from the public preview.</desc>
+  <rect width="800" height="560" fill="#f4f0e8"/>
+  <rect x="96" y="64" width="608" height="432" fill="#fffdf8" stroke="#13233a" stroke-width="3"/>
+  <path d="M156 152h488M156 208h360M156 264h430M156 320h290" stroke="#9aa4b1" stroke-width="12" stroke-linecap="round"/>
+  <rect x="156" y="376" width="488" height="58" fill="#13233a"/>
+  <text x="400" y="412" fill="#f5f1e8" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">PRIVATE FILE</text>
+</svg>

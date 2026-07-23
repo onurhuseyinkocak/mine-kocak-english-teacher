@@ -18,5 +18,8 @@ Reviewed supplied files from `Downloads/adsız klasör` before publication.
 - `assets/certificates/etwinning-national-quality-label.jpg`: the supplied eTwinning project quality label. No government identity number, birth date, address, or certificate verification code was visible in the supplied image.
 - `assets/line-qr.jpg`: the supplied LINE QR code, included because it was explicitly provided as a contact asset.
 - `assets/video-poster.jpg` and `assets/og-image.jpg`: thumbnail downloaded from the YouTube self-introduction URL printed in the supplied resume.
+- `assets/documents/resume-public.jpg`, `diploma-public.jpg`, `tesol-public.jpg`, `montessori-public.jpg`, and `achievement-public.jpg`: derived public previews with sensitive regions permanently covered. These are not the original files.
+- `assets/documents/etwinning-quality-label.jpg`: a copy of the safe eTwinning label used by the document viewer.
+- `assets/documents/document-private.svg`: a generic cover used for the transcript and criminal-record cards. It does not contain the private source documents.
 
 The site does not claim that any document was independently verified. Certificate titles and dates are presented as recorded in the supplied resume or visible on the supplied certificate image.
