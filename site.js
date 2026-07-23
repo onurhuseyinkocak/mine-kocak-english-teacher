@@ -4,6 +4,14 @@
   var languageKey = "mine-kocak-cv-language";
   var root = document.body && document.body.dataset.router === "root";
 
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+
+  window.addEventListener("pageshow", function () {
+    if (!window.location.hash) window.scrollTo(0, 0);
+  });
+
   function preferredLanguage() {
     var saved = null;
     try { saved = window.localStorage.getItem(languageKey); } catch (error) { saved = null; }
