@@ -25,7 +25,7 @@
   var cards = Array.prototype.slice.call(document.querySelectorAll("[data-document-card]"));
   var dialog = document.querySelector("#document-dialog");
   var image = dialog && dialog.querySelector("#document-dialog-image");
-  var privateView = dialog && dialog.querySelector("#document-private-view");
+  var pdf = dialog && dialog.querySelector("#document-dialog-pdf");
   var title = dialog && dialog.querySelector("#document-dialog-title");
   var meta = dialog && dialog.querySelector("#document-dialog-meta");
   var counter = dialog && dialog.querySelector("#document-dialog-counter");
@@ -36,20 +36,28 @@
     current = (index + cards.length) % cards.length;
     var card = cards[current];
     var source = card.dataset.documentSrc;
+    var pdfSource = card.dataset.documentPdf;
     title.textContent = card.dataset.documentTitle;
     meta.textContent = card.dataset.documentMeta;
     counter.textContent = (current + 1) + " / " + cards.length;
-    if (source) {
+
+    if (pdf) {
+      pdf.hidden = true;
+      pdf.removeAttribute("src");
+    }
+    if (image) {
+      image.hidden = true;
+      image.removeAttribute("src");
+    }
+
+    if (pdfSource && pdf) {
+      pdf.src = pdfSource;
+      pdf.title = card.dataset.documentTitle;
+      pdf.hidden = false;
+    } else if (source && image) {
       image.src = source;
       image.alt = card.dataset.documentAlt || card.dataset.documentTitle;
       image.hidden = false;
-      privateView.hidden = true;
-    } else {
-      image.removeAttribute("src");
-      image.hidden = true;
-      privateView.hidden = false;
-      privateView.querySelector("strong").textContent = card.dataset.documentTitle;
-      privateView.querySelector("span").textContent = card.dataset.documentMeta;
     }
   }
 
@@ -67,6 +75,7 @@
     if (typeof dialog.close === "function" && dialog.open) dialog.close();
     else dialog.setAttribute("hidden", "hidden");
     if (image) image.removeAttribute("src");
+    if (pdf) pdf.removeAttribute("src");
   }
 
   cards.forEach(function (card, index) { card.addEventListener("click", function () { openDocument(index); }); });
@@ -76,7 +85,10 @@
   dialog.querySelector("[data-document-prev]").addEventListener("click", function () { renderDocument(current - 1); });
   dialog.querySelector("[data-document-next]").addEventListener("click", function () { renderDocument(current + 1); });
   dialog.addEventListener("click", function (event) { if (event.target === dialog) closeDocument(); });
-  dialog.addEventListener("close", function () { if (image) image.removeAttribute("src"); });
+  dialog.addEventListener("close", function () {
+    if (image) image.removeAttribute("src");
+    if (pdf) pdf.removeAttribute("src");
+  });
   document.addEventListener("keydown", function (event) {
     if (!dialog.open) return;
     if (event.key === "ArrowLeft") { event.preventDefault(); renderDocument(current - 1); }
